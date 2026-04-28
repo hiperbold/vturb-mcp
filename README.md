@@ -2,8 +2,6 @@
 
 MCP server for the [vTurb Analytics API](https://vturb.gitbook.io/analytics-api/pt) — exposes 15 tools to query real-time and historical video analytics directly from Claude.
 
-Built with the same pattern as [hotmart-mcp](https://github.com/theYahia/hotmart-mcp): TypeScript + `@modelcontextprotocol/sdk` + `zod`.
-
 ---
 
 ## Features
@@ -41,10 +39,10 @@ The MCP uses a per-client `.env` file so you can manage multiple vTurb accounts 
 
 ```bash
 # Copy the example
-cp .env.example .env.nome-do-cliente
+cp .env.example .env.customer-name
 
 # Edit and paste your token
-# .env.paula-ardanza
+# .env.customer-name
 VTURB_API_TOKEN=your_token_here
 ```
 
@@ -67,7 +65,7 @@ Open `~/.claude/mcp.json` (create it if it doesn't exist) and add:
       "command": "node",
       "args": ["/absolute/path/to/vturb-mcp/dist/index.js"],
       "env": {
-        "VTURB_ENV_FILE": "/absolute/path/to/vturb-mcp/.env.nome-do-cliente"
+        "VTURB_ENV_FILE": "/absolute/path/to/vturb-mcp/.env.customer-name"
       }
     }
   }
@@ -83,7 +81,7 @@ Open `~/.claude/mcp.json` (create it if it doesn't exist) and add:
       "command": "node",
       "args": ["F:\\local-mcps\\vturb-mcp\\dist\\index.js"],
       "env": {
-        "VTURB_ENV_FILE": "F:\\local-mcps\\vturb-mcp\\.env.paula-ardanza"
+        "VTURB_ENV_FILE": "F:\\local-mcps\\vturb-mcp\\.env.customer-name"
       }
     }
   }
@@ -101,7 +99,7 @@ The MCP server starts automatically on the next session. You'll see it listed in
 To switch accounts, just update `VTURB_ENV_FILE` in `mcp.json` to point to a different `.env` file and restart Claude:
 
 ```json
-"VTURB_ENV_FILE": "F:\\local-mcps\\vturb-mcp\\.env.outro-cliente"
+"VTURB_ENV_FILE": "F:\\local-mcps\\vturb-mcp\\.env.other-customer"
 ```
 
 ---
